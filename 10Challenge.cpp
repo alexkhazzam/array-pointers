@@ -13,7 +13,7 @@ using namespace std;
 
 int *apply_all(const int array1[], size_t array1_size, const int array2[], size_t array2_size)
 {
-    int *const new_arr_ptr{new int[array1_size * array2_size]{}};
+    int *const new_arr_ptr{new int[array1_size * array2_size]{}}; // allocating 15 integers on heap
     vector<int> new_arr_values{};
 
     unsigned int pos{0};
