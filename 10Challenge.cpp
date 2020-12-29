@@ -11,9 +11,9 @@
 
 using namespace std;
 
-int *apply_all(int array1[], size_t array1_size, int array2[], size_t array2_size)
+int *apply_all(const int array1[], size_t array1_size, const int array2[], size_t array2_size)
 {
-    int *new_arr_ptr{new int[array1_size * array2_size]{}};
+    int *const new_arr_ptr{new int[array1_size * array2_size]{}};
     vector<int> new_arr_values{};
 
     for (size_t i{0}; i <= (array1_size - 1); ++i)
@@ -32,7 +32,7 @@ int *apply_all(int array1[], size_t array1_size, int array2[], size_t array2_siz
     return new_arr_ptr;
 }
 
-void print(int array[], size_t array_size)
+void print(const int array[], size_t array_size)
 {
     cout << "[";
     for (size_t i{0}; i <= (array_size - 1); ++i)
