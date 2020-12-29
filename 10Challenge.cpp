@@ -16,21 +16,22 @@ int *apply_all(const int array1[], size_t array1_size, const int array2[], size_
     int *const new_arr_ptr{new int[array1_size * array2_size]{}};
     vector<int> new_arr_values{};
 
+    unsigned int pos{0};
     for (size_t i{0}; i <= (array1_size - 1); ++i)
         for (size_t k{0}; k <= (array2_size - 1); ++k)
-            new_arr_values.push_back(array1[i] * array2[k]);
-
-    for (size_t k{0}; k <= 15; ++k)
-        new_arr_ptr[k] = new_arr_values[k];
+        {
+            new_arr_ptr[pos] = array1[i] * array2[k];
+            ++pos;
+        }
 
     return new_arr_ptr;
 }
 
-void print(const int array[], size_t array_size, unsigned int array_num)
+void print(const int *const array, size_t array_size, unsigned int array_num)
 {
     cout << "\nArray " << array_num << ": [";
     for (size_t i{0}; i <= (array_size - 1); ++i)
-        cout << " " << array[i] << " ";
+        cout << " " << array[i] << " "; // pointer subscript notation or *(array + i)
     cout << "]";
 }
 
